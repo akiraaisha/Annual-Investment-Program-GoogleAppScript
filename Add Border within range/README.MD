@@ -1,4 +1,4 @@
-# Google Sheets Border Adder
+# Google Sheets Border Adder for Annual Investment Program
 
 ## Description
 Google Sheets Border Adder is a simple Google Apps Script that allows you to add borders to a specific range of cells in a Google Sheets spreadsheet. The script provides an interactive way to select the range and customize the borders.
@@ -39,7 +39,7 @@ Assume you want to add borders to rows 11 to 20 for columns B to E (B11:E20) in 
 - The starting row is fixed at 11, but you can customize this value in the script if needed.
 
 ## Author
-- [Your Name](https://github.com/yourusername)
+- [Julian Lugod](https://github.com/akiraaisha)
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
