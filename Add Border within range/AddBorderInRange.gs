@@ -1,21 +1,40 @@
-function addBordersToRange() {
-  // Define the name of the sheet where the borders will be applied
-  var sheetName = "52. ENGINEERING";
+function addBordersToRangeWithInputs() {
+  var activeSheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var sheetName = activeSheet.getName();
+  var selectedRow = activeSheet.getActiveRange().getRow();
 
-  // Define the start and end rows within the sheet to apply borders
+  // Show an alert to ask the user whether to add borders to the selected row
+  var ui = SpreadsheetApp.getUi();
+  var response = ui.alert(
+    "Do you want to add borders to Row " + selectedRow + " in " + sheetName + "?",
+    ui.ButtonSet.YES_NO
+  );
+
+  var endRow;
+  if (response === ui.Button.NO) {
+    do {
+      var userInput = ui.prompt(
+        "Enter the end row for the " + sheetName + ":",
+        ui.ButtonSet.OK_CANCEL
+      );
+
+      if (userInput.getSelectedButton() === ui.Button.CANCEL) {
+        return; // User clicked cancel, exit the function
+      }
+
+      endRow = parseInt(userInput.getResponseText());
+    } while (isNaN(endRow) || endRow < 1);
+  } else {
+    endRow = selectedRow;
+  }
+
   var startRow = 11;
-  var endRow = 74;
-
-  // Define the start and end columns (in A1 notation) within the sheet to apply borders
   var columnStart = 2; // Column B
   var columnEnd = 5; // Column E
 
-  // Get the sheet by name
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
 
-  // Loop through each row within the specified range and add borders
   for (var row = startRow; row <= endRow; row++) {
-    // Set the range for the current row, starting from the specified column and spanning the number of columns to apply borders
     sheet.getRange(row, columnStart, 1, columnEnd - columnStart + 1)
       .setBorder(
         true,    // Top border
