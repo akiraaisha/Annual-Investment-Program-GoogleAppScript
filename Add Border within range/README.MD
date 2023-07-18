@@ -1,44 +1,46 @@
-# Excel Data Border App - Google Apps Script
+# Google Sheets Border Adder
 
-This Google Apps Script provides a solution to add borders to a specific range in an Excel sheet. It allows you to easily apply top, left, bottom, and right borders to each row within the specified range.
+## Description
+Google Sheets Border Adder is a simple Google Apps Script that allows you to add borders to a specific range of cells in a Google Sheets spreadsheet. The script provides an interactive way to select the range and customize the borders.
 
-## Functionality
+## Features
+- Automatically adds borders to a range of cells in Google Sheets.
+- Allows customization of the starting and ending rows.
+- Supports both automatic bordering of selected row or manual entry of the end row.
+- Easy-to-use user interface using Google Apps Script UI.
 
-The script performs the following tasks:
-
-- Adds top, left, bottom, and right borders to each row within the specified range.
-- Supports customization of the sheet name, start row, end row, column start, and column end.
+## How to Use
+1. Open your Google Sheets spreadsheet.
+2. Go to "Extensions" > "Apps Script" to open the Google Apps Script editor.
+3. Copy and paste the code from [`Code.js`](Code.js) into the script editor.
+4. Save the script, and give it a name (e.g., "BorderAdder").
+5. Close the script editor.
+6. Refresh the spreadsheet.
 
 ## Usage
+To use the script, follow these steps:
 
-1. Open your Google Sheets document.
-2. Click on "Extensions" in the menu bar.
-3. Select "Apps Script" to open the script editor.
-4. Replace the existing code with the provided script.
-5. Customize the `sheetName`, `startRow`, `endRow`, `columnStart`, and `columnEnd` variables as per your desired range.
-6. Save the script.
-7. Run the `addBordersToRange` function by clicking on the play button or by selecting "addBordersToRange" from the "Select function" dropdown and clicking "Run."
-8. The script will add borders to each row within the specified range.
+1. Select the row where you want to start applying borders.
+2. Go to "Add-ons" > "BorderAdder" > "Add Borders to Selected Row" from the Google Sheets menu.
+3. The script will prompt you to add borders to the selected row. If you click "Yes," the borders will be added to the selected row. If you click "No," it will prompt you to input the ending row number to apply the borders.
 
-Please note that the range should be entered in A1 notation. For example, to add borders to the range "B11:E74", set `columnStart = 2`, `columnEnd = 5`, `startRow = 11`, and `endRow = 74`.
+## Example
+Assume you want to add borders to rows 11 to 20 for columns B to E (B11:E20) in the sheet named "DataSheet." You can do this by following these steps:
 
-## Parameters
+1. Open the "DataSheet" in your Google Sheets.
+2. Select any cell in row 11.
+3. Go to "Add-ons" > "BorderAdder" > "Add Borders to Selected Row" from the Google Sheets menu.
+4. The script will ask if you want to add borders to Row 11 in "DataSheet." Click "No."
+5. An input box will appear asking you to enter the ending row number. Enter "20" and click "OK."
+6. The script will add borders to the range B11:E20.
 
-The script allows customization through the following parameters:
+## Note
+- This script works for the currently active sheet in your Google Sheets.
+- The starting row is fixed at 11, but you can customize this value in the script if needed.
 
-- `sheetName`: Specify the name of the sheet where the borders will be applied.
-- `startRow`: Specify the starting row (inclusive) within the sheet to apply borders.
-- `endRow`: Specify the ending row (inclusive) within the sheet to apply borders.
-- `columnStart`: Specify the starting column (in A1 notation) within the sheet to apply borders.
-- `columnEnd`: Specify the ending column (in A1 notation) within the sheet to apply borders.
-
-Ensure that you have the necessary permissions to access and modify the Google Sheets document.
+## Author
+- [Your Name](https://github.com/yourusername)
 
 ## License
-
 This project is licensed under the [MIT License](LICENSE).
-
-Feel free to utilize this Google Apps Script to easily add borders to a specific range in your Excel data, improving the visual presentation and organization of your sheets.
-
-For any issues or suggestions, please feel free to open an issue or submit a pull request.
 
